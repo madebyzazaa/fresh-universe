@@ -66,3 +66,7 @@ console.log('traffic error', error); return
 }
 
 load()
+
+document.getElementById('footer-join').addEventListener('click', ()=>{
+alert('Please join the drop list on our homepage!')
+})

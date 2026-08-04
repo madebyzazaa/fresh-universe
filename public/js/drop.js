@@ -51,3 +51,11 @@ document.getElementById('drop-img').src=res.url
 
 load()
 
+ document.getElementById('notify-btn').addEventListener('click', ()=>{
+  if(state){window.open('https://freshuniverseworld.myshopify.com', '_blank')}
+  else{alert('Please join the drop list on our homepage!')}
+ })
+
+ document.getElementById('footer-join').addEventListener('click', ()=>{
+alert('Please join the drop list on our homepage!')
+})
