@@ -60,8 +60,19 @@ console.log('server error', error); return res.status(500).json({data: false})
 })
 
 //delete
-route.post('/drop/delete', async(req, res)=>{
+route.post('/drop/end', async(req, res)=>{
 
+if(req.body.data!='end'){return}
+try {
+const {error} = await base.from('drop').update({
+url: 'https://txrrkkcotsdwkrksjinw.supabase.co/storage/v1/object/public/public-assets/no-entry-sign-flat-greyscale-icon-vector.jpg',
+timer: new Date().toISOString()
+}).eq('id', 3)
+if(error){return console.log('serer error: could not clear drop', error)}
+else{console.log('successfully cleared drop')}
+} catch (error) {
+console.log('server error', error) 
+}
 })
 
 module.exports = route

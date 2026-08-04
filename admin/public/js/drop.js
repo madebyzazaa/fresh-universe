@@ -124,3 +124,13 @@ console.error('drop server error', error); return
 
 }
 drop()
+
+document.getElementById('remove-drop').addEventListener('click', ()=>{
+fetch('/admin/drop/end', {
+  method: 'POST',
+  headers: {
+    'content-Type': 'application/json'
+  },
+  body: JSON.stringify({data: 'end'})
+})
+})

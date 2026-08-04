@@ -30,6 +30,7 @@ const response = await fetch('/admin/drop/data/landing')
 const data = await response.json()
 if(!data){return}
 const res = data.data[0]
+if(res.product_name===''){return}
 console.log(res)
 document.getElementById('item').innerHTML=res.details.item
 document.getElementById('graphic').innerHTML=res.details.graphic
@@ -51,6 +52,6 @@ document.getElementById('drop-img').src=res.url
 load()
 
  document.getElementById('notify-btn').addEventListener('click', ()=>{
-  if(state){window.open('https://freshuniverseworld.shopify.com', '_blank')}
+  if(state){window.open('https://freshuniverseworld.myshopify.com', '_blank')}
   else{sessionStorage.setItem('email-registra', 'notify-me'); location.href='/'}
  })
