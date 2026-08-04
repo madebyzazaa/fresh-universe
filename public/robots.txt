@@ -3,3 +3,5 @@ Disallow: /admin/
 Disallow: /about.html
 Disallow: /about
 Allow: /
+
+Sitemap: https://freshuniverseworld.xyz/sitemap.xml
