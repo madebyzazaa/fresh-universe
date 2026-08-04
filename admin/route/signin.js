@@ -23,7 +23,23 @@ const date = new Date
 const expires = new Date(server_token.key_expire)
 
 if(server_token.session_key == token.token && expires > date){
-console.log('status 1001');return res.render('admin', {username: server_token.username})
+console.log('status 1001');
+try {
+  const isoDate = new Date().toISOString();
+
+  const { data, error } = await secret
+    .from('admin')
+    .update({ status: isoDate }).eq('id', token.id);
+
+  if (error) {
+    console.error('Supabase update error:', error.message);
+  } else {
+    console.log('Successfully updated status:', data);
+  }
+} catch (err) {
+  console.error('Unexpected error:', err.message);
+}
+return res.render('admin', {username: server_token.username})
 }
 else if(date > expires){console.log('err 1025')
 res.clearCookie('admin_session')

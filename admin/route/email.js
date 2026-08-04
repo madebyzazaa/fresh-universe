@@ -5,7 +5,7 @@ route.use(express.urlencoded({extended: true }));
 const {secret} = require('../../supabase-secret');
 const { base } = require('../../supabase');
 const {Resend} = require('resend')
-const resend = new Resend('re_4r9d6vLD_L41iezfj7gnhozPUrRqJ4UpS');
+const resend = new Resend(process.env.RESEND_KEY);
 const cors = require('cors')
 route.use(cors({
     origin: 'http://127.0.0.1:5500', // Allow your frontend origin
@@ -61,8 +61,8 @@ const list = req.body.list
 
 try {
 const {data, error} = await resend.emails.send({
-  from: 'Fresh Universe <onboarding@resend.dev>',
-  to: ['madebyzazaa@gmail.com'],
+  from: 'Fresh Universe <onboard@freshuniverseworld.xyz>',
+  to: ['noresponse@gmail.com'],
   bcc: list,
   subject: subject,
   html: email

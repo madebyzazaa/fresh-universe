@@ -42,6 +42,9 @@ res.sendFile(path.join(__dirname, 'public', 'drops.html'));
 app.get('/perks', (req, res)=>{
 res.sendFile(path.join(__dirname, 'public', 'perks.html'));
 })
+app.get('/about', (req, res)=>{
+res.sendFile(path.join(__dirname, 'public', 'about.html'));
+})
 
 const port = process.env.PORT || 3000
 app.listen(port)
