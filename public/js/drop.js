@@ -51,7 +51,3 @@ document.getElementById('drop-img').src=res.url
 
 load()
 
- document.getElementById('notify-btn').addEventListener('click', ()=>{
-  if(state){window.open('https://freshuniverseworld.myshopify.com', '_blank')}
-  else{sessionStorage.setItem('email-registra', 'notify-me'); location.href='/'}
- })
