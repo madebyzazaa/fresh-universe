@@ -1,3 +1,4 @@
+let state = false
 function formatCountdown(targetDateString) {
   const targetDate = new Date(targetDateString);
   const now = new Date();
@@ -6,7 +7,9 @@ function formatCountdown(targetDateString) {
   let difference = targetDate - now;
 
   if (difference <= 0) {
-    return "0days: 0hrs: 0min";
+    document.getElementById('notify-btn').innerHTML='cop yours'
+    state=true
+    return "00:00:00:00";
   }
 
   // Time calculations for days, hours, and minutes
@@ -47,3 +50,7 @@ document.getElementById('drop-img').src=res.url
 
 load()
 
+ document.getElementById('notify-btn').addEventListener('click', ()=>{
+  if(state){window.open('https://freshuniverseworld.shopify.com', '_blank')}
+  else{sessionStorage.setItem('email-registra', 'notify-me'); location.href='/'}
+ })

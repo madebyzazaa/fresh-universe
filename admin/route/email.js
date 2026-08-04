@@ -28,6 +28,7 @@ console.log(error); return res.status(400)
 //save email
 route.post('/deploy/email', async(req, res)=>{
 const email = req.body.email
+const des = req.body.des
 try {
 const {data, error} = await secret.from('emails').select().eq('email', email)
 
@@ -39,7 +40,7 @@ return res.status(500).json({ status: false });
 }
 const {error: err} = await secret.from('emails').insert({
 email: email,
-description: 'landing page'
+description: des
 })
 if(err){console.log('error saving email to supabase')
 return res.json({status: false})}

@@ -1,3 +1,13 @@
+let registra = sessionStorage.getItem('email-registra')
+if(registra==null){registra='landing page'}
+
+if(registra==='notify-me'){
+document.getElementById('email').focus()
+document.getElementById('email').addEventListener('focusout', ()=>{
+sessionStorage.setItem('email-registra', 'landing page')
+})
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const typingBubble = document.getElementById("bubble");
   const finalPopup = document.getElementById("popup");
@@ -62,12 +72,15 @@ const result = await fetch('/admin/deploy/email', {
     headers: {
         'content-Type': 'application/json'
     },
-body: JSON.stringify({ email: email.value })
+    
+body: JSON.stringify({ email: email.value, des: registra})
+
 })
 
 if(result.ok){
 const data = await result.json()    
 console.log('success')
+
 if(data.status===true){
 savebtn.disable = true
 savebtn.innerHTML='JOIN THE UNIVERSE'
@@ -98,3 +111,10 @@ console.log('server err: ',error); return
 })
 
 
+document.getElementById('footer-join').addEventListener('click', ()=>{
+document.getElementById('email').focus()
+})
+
+document.getElementById('explore-btn').addEventListener('click', ()=>{
+document.getElementById('section1').scrollIntoView()
+})

@@ -541,6 +541,15 @@ width: 90%;
   color: #0b0c0e;
   border-bottom-right-radius: 2px;
 }
+#bubble{
+margin-top: 30px;
+width: 150px;
+
+justify-self: flex-end; 
+}
+#popup{
+display: none;
+}
 
 .wa-bubble p {
   font-family: 'Inter', sans-serif;
@@ -589,6 +598,7 @@ width: 90%;
   display: flex;
   align-items: center;
   gap: 4px;
+  min-width: 20px;
 }
 
 #dot1, #dot2, #dot3 {
@@ -746,4 +756,165 @@ footer {
   height: 100px;
   background-color: #050506;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================
+   FRESH UNIVERSE - FOOTER STYLES
+   ========================================== */
+
+footer {
+  background-color: #080808;
+  color: #ffffff;
+  padding: 60px 20px 20px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+/* Brand Section */
+.footer-brand h3 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.footer-brand p {
+  color: #888888;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Section Titles */
+.footer-links h4,
+.footer-socials h4,
+.footer-newsletter h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: #aaaaaa;
+}
+
+/* Lists & Links */
+.footer-links ul,
+.footer-socials ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li,
+.footer-socials li {
+  margin-bottom: 12px;
+}
+
+.footer-links a,
+.footer-socials a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-socials a:hover {
+  opacity: 0.6;
+}
+
+/* Newsletter Form */
+.footer-newsletter p {
+  color: #888888;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.footer-newsletter form {
+  display: flex;
+  gap: 8px;
+}
+
+.footer-newsletter input {
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  padding: 12px 14px;
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.footer-newsletter input:focus {
+  border-color: #ffffff;
+}
+
+.footer-newsletter button {
+   border: 1px solid #2a2a2a;
+  background: #141414;
+  color: #ffffff;
+  padding: 12px 20px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.footer-newsletter button:hover {
+  background: #e0e0e0;
+  color: black;
+}
+
+.footer-newsletter button:active {
+  transform: scale(0.97);
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #555555;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  footer {
+    padding: 40px 16px 20px 16px;
+  }
+  
+  .footer-container {
+    gap: 30px;
+  }
+
+  .footer-newsletter form {
+    flex-direction: column;
+  }
+  
+  .footer-newsletter button {
+    width: 100%;
+  }
 }
