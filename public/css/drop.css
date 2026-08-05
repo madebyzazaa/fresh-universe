@@ -510,7 +510,7 @@ min-height: 150vh;
    ========================================================================== */
 footer {
   width: 100%;
-  height: 100px;
+  height: fit-content;
   background-color: #050506;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -519,7 +519,7 @@ footer {
    FRESH UNIVERSE - FOOTER STYLES
    ========================================== */
 
-footer {height: 350px;
+footer {
   background-color: #080808;
   color: #ffffff;
   padding: 60px 20px 20px 20px;
