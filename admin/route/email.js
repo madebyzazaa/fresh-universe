@@ -57,16 +57,19 @@ return res.json({status: false})
 route.post('/email/send', async(req, res)=>{
 const email = req.body.email
 const subject = req.body.name
-const list = req.body.list
+const list = req.body.list 
 
 try {
-const {data, error} = await resend.emails.send({
+
+const batchPayload = list.map(userEmail => ({
   from: 'Fresh Universe <onboard@freshuniverseworld.xyz>',
-  to: ['noresponse@gmail.com'],
-  bcc: list,
+  to: userEmail,
   subject: subject,
   html: email
-});
+}));
+
+const {data, error} = await resend.batch.send(batchPayload);
+
 if(error){
 console.log('resend error', error); return res.status(400).json({status: false})
 }
@@ -74,8 +77,6 @@ console.log('sent'); return res.status(200).json({status: true})
 } catch (error) {
 console.log(error); return res.status(500).json({status: false}) 
 }
-res.json({status: false})
 })
-
 
 module.exports = route
