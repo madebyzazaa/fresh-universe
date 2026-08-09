@@ -1,0 +1,689 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+background-color: rgb(245, 244, 244);
+margin: 0;
+  overflow-x: hidden;
+}
+.navigation-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: rgba(28, 28, 31, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 min(4vw, 40px);
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.fresh-logo {
+  width: 32px;
+  height: auto;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo-box:hover .fresh-logo {
+  transform: rotate(180deg);
+}
+
+.brand-txt {
+  font-family: 'Syncopate', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navigation-href-list {
+  display: flex;
+  list-style: none;
+  gap: min(3vw, 32px);
+}
+
+.navigation-href {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.navigation-href:hover {
+  color: #ffffff;
+}
+
+.shopify-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+
+}
+
+.shopify-link:hover {
+  background: #ffffff;
+}
+
+.shopify-link-img {
+  width: 18px;
+  filter: invert(1);
+  transition: filter 0.3s ease;
+}
+
+.shopify-link:hover .shopify-link-img {
+  filter: invert(0);
+}
+
+/* Navbar Responsiveness */
+@media (max-width: 768px) {
+  .brand-txt { display: none; }
+  .navigation-href { font-size: 0.65rem; letter-spacing: 1px; }
+  .navigation-href-list { gap: 16px; }
+}
+@media (max-width: 450px) {
+.navigation-href{font-size: 10px;}
+.navigation-href-list{gap: 7px;}
+}
+@media (max-width: 310px) {
+.shopify-link{display: none;}
+.navigation-bar{padding-right: 20px;}
+}
+.head{
+width: 100%;
+height: 300px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin-bottom: 30px;
+background-color: #f0f0f0;
+background-image: url(/images/fresh-universe-tenski-save-me-isi-agu-split-crop-top.webp);
+}
+.search{
+backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px);
+width: 40%;
+border-radius: 20px;
+height: 50px;
+background-color: rgb(255, 255, 255, 0.6);
+border: 0;
+border: 1px solid rgba(194, 194, 194, 0.548);
+padding-left: 20px;
+
+min-width: 290px;}
+.h1{color: rgb(255, 255, 255, 0.7);
+text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+font-size: clamp(1.8rem, 4.5vw, 5rem);
+font-family: 'inter', sans-serif;
+}
+.tee-name{
+font-family: sans-serif;
+}
+.txt{
+font-family: monospace;
+}
+
+.grid {
+  min-height: 300px;
+  display: grid;
+  /* Automatically fits as many cards per row as possible, minimum 280px wide */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 50px;
+  padding: 20px;
+  font-family: 'Courier New', Courier, monospace; /* Keeps typography raw and industrial */
+}
+
+/* 2. THE PRODUCT CARD MODULE */
+.product-card {white-space: pre-line;
+  background: transparent;
+  /*border: 1px solid #707070;*/
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  /* Brutalist hard-edged shadow (no blur) */
+  transition: tra
+  nsform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Cyber pop reaction when hovering over a card */
+.product-card:hover {
+animation-name: raise;
+animation-duration: 0.7s;
+animation-timing-function: ease-out;
+margin-top: -10px;
+}
+@keyframes raise {
+0%{
+margin-top: 0px;
+}
+100%{
+margin-top: -10px;
+}
+}
+
+/* 3. THE TOP META HEADER */
+.product-meta-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #555555;
+}
+body{background-color: rgb(248, 248, 248);}
+.asset-tag {
+  color: #ff0055; /* Hot pink/neon red accent for the file type tag */
+}
+
+/* 4. THE IMAGE FIXER CONTAINER */
+.product-image-wrapper {
+  width: 100%;
+  /* 🎯 FORCES every box to be a perfect square, regardless of the raw image size */
+  aspect-ratio: 1 / 1; 
+  background-color: #f0f0f0; /* Light industrial gray backdrop */
+  border: 1px solid #646464;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 16px; /* Prevents edge-to-edge text sheet images from touching the inner border */
+}
+
+/* 5. THE STRIPPED IMAGE CONTROLS */
+.product-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  /* 🛡️ THE LIFESAVER: Centers mockups, stops stretching, and fits the full tech sheets inside the box */
+  object-fit: contain; 
+}
+
+/* 6. THE FILLER SPEC TEXT */
+.product-spec-text {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #777777;
+  line-height: 1.5;
+  margin: 14px 0;
+  border-left: 2px solid #000000;
+  padding-left: 8px;
+}
+
+/* 7. THE SHOP NOW CALL-TO-ACTION */
+.shop-btn {
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.1s ease;
+height: 40px;
+border-radius: 7px;
+border: 0;
+background-color: rgb(46, 46, 46);
+color: white;
+}
+
+.shop-btn:hover {
+  background: #474747; /* Switches button to neon green on hover */
+  color: #f7f7f7;
+}
+
+/* ==========================================================
+   COLLAPSIBLE ACCORDION HANDBOOK STYLING (.guideline-body)
+   ========================================================== */
+
+.guideline-body {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Tab Dashboard Main Title */
+.page-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+/* Individual Content Category Rows */
+.guideline-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Section Header styling */
+.section-title {
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+    margin-bottom: 0.25rem;
+}
+
+/* Container bundling stacked question blocks */
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* --- Native HTML Details Card Style --- */
+.faq-block {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Subtle accent focus highlight when a marketer opens a specific card */
+.faq-block[open] {
+    border-color: var(--accent);
+}
+
+/* --- Native HTML Summary Question Style --- */
+.faq-question {
+    padding: 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    cursor: pointer;
+    list-style: none; /* Empties default native arrow toggle on Chrome/Firefox */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+/* Cross-browser default arrow killer tag rule for Safari */
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+/* Adds a clean, pure CSS custom sliding arrow symbol indicator indicator */
+.faq-question::after {
+    content: '+';
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    transition: transform 0.2s ease;
+}
+
+/* Rotates indicator dynamically when parent card state shifts to open */
+.faq-block[open] .faq-question::after {
+    transform: rotate(45deg);
+    color: var(--accent);
+}
+
+/* --- Expanded Answer Text Wrapper Section --- */
+.faq-answer {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    border-top: 1px solid transparent;
+}
+
+/* Inject divider line when details expand */
+.faq-block[open] .faq-answer {
+    border-top-color: var(--bg-main);
+    padding-top: 1rem;
+}
+
+/* Bullet styling elements nested within collapsible cards */
+.faq-answer ul {
+    margin-top: 0.75rem;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.faq-answer li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Custom Warning Highlight tag for Banking disclaimer card */
+.alert-txt {
+    color: #d32f2f;
+    font-weight: 800;
+}
+
+/* ==========================================================================
+   8. SECTION 5 — FOOTER OVERLAY & NEWSLETTER
+   ========================================================================== */
+.section5 {
+  position: relative;
+  width: 100%;
+min-height: 150vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+}
+
+.models-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 150vh;
+  padding: 100px 6vw;
+  background: rgba(10, 11, 14, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.closing-header {
+  font-family: 'Antonio', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: -1px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.closing-txt {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.95rem, 1.3vw, 1.2rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 820px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.special2 { color: #ffffff; font-weight: 700; }
+
+.newsletter-stacked-box {
+  display: flex;
+  width: min(540px, 100%);
+  gap: 12px;
+}
+
+.newsletter-stacked-box input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 18px 24px;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.newsletter-stacked-box input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.newsletter-stacked-box input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+}
+
+.newsletter-stacked-box button {
+  padding: 18px 28px;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.newsletter-stacked-box button:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .newsletter-stacked-box {
+    flex-direction: column;
+  }
+  .newsletter-stacked-box button {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   9. FOOTER
+   ========================================================================== */
+footer {
+  width: 100%;
+height: fit-content;
+  background-color: #050506;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================
+   FRESH UNIVERSE - FOOTER STYLES
+   ========================================== */
+
+footer {
+  background-color: #080808;
+  color: #ffffff;
+  padding: 60px 20px 20px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+/* Brand Section */
+.footer-brand h3 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.footer-brand p {
+  color: #888888;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Section Titles */
+.footer-links h4,
+.footer-socials h4,
+.footer-newsletter h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: #aaaaaa;
+}
+
+/* Lists & Links */
+.footer-links ul,
+.footer-socials ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li,
+.footer-socials li {
+  margin-bottom: 12px;
+}
+
+.footer-links a,
+.footer-socials a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-socials a:hover {
+  opacity: 0.6;
+}
+
+/* Newsletter Form */
+.footer-newsletter p {
+  color: #888888;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.footer-newsletter form {
+  display: flex;
+  gap: 8px;
+}
+
+.footer-newsletter input {
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  padding: 12px 14px;
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.footer-newsletter input:focus {
+  border-color: #ffffff;
+}
+
+.footer-newsletter button {
+   border: 1px solid #2a2a2a;
+  background: #141414;
+  color: #ffffff;
+  padding: 12px 20px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.footer-newsletter button:hover {
+  background: #e0e0e0;
+  color: black;
+}
+
+.footer-newsletter button:active {
+  transform: scale(0.97);
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #555555;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  footer {
+    padding: 40px 16px 20px 16px;
+  }
+  
+  .footer-container {
+    gap: 30px;
+  }
+
+  .footer-newsletter form {
+    flex-direction: column;
+  }
+  
+  .footer-newsletter button {
+    width: 100%;
+  }
+}
+
+/* static cards for google seo */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
